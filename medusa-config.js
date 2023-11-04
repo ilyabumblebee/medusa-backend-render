@@ -37,14 +37,12 @@ const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
   {
-    resolve: `medusa-file-s3`,
+    resolve: `medusa-file-github`,
     options: {
-        s3_url: process.env.S3_URL,
-        bucket: process.env.S3_BUCKET,
-        region: process.env.S3_REGION,
-        access_key_id: process.env.S3_ACCESS_KEY_ID,
-        secret_access_key: process.env.S3_SECRET_ACCESS_KEY,
-        cache_control: process.env.S3_CACHE_CONTROL,
+      owner: process.env.GITHUB_USER,
+      repo: process.env.GITHUB_REPO,
+      path: "public",
+      github_token: process.env.GITHUB_TOKEN
     },
   },
   {
