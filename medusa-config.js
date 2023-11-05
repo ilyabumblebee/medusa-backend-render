@@ -23,10 +23,10 @@ try {
 
 // CORS when consuming Medusa from admin
 const ADMIN_CORS =
-  process.env.ADMIN_CORS || "/https:\/\/*/";
+  process.env.ADMIN_CORS || "http://localhost:7000,http://localhost:7001";
 
 // CORS to avoid issues when consuming Medusa from a client
-const STORE_CORS = process.env.STORE_CORS || "/vercel\.app$/";
+const STORE_CORS = process.env.STORE_CORS || "http://localhost:8000";
 
 const DATABASE_URL =
   process.env.DATABASE_URL || "postgres://localhost/medusa-starter-default";
@@ -58,29 +58,30 @@ const plugins = [
 ];
 
 const modules = {
-  // eventBus: {
-  //   resolve: "@medusajs/event-bus-redis",
-  //   options: {
-  //     redisUrl: REDIS_URL
-  //   }
-  // },
-  // cacheService: {
-  //   resolve: "@medusajs/cache-redis",
-  //   options: {
-  //     redisUrl: REDIS_URL
-  //   }
-  // },
+  /*eventBus: {
+    resolve: "@medusajs/event-bus-redis",
+    options: {
+      redisUrl: REDIS_URL
+    }
+  },
+  cacheService: {
+    resolve: "@medusajs/cache-redis",
+    options: {
+      redisUrl: REDIS_URL
+    }
+  },*/
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule["projectConfig"]} */
 const projectConfig = {
   jwtSecret: process.env.JWT_SECRET,
   cookieSecret: process.env.COOKIE_SECRET,
-  admin_cors: "/https:\/\/*/",
-  store_cors: "/vercel\.app$/",
-  redis_url: REDIS_URL,
+  store_cors: STORE_CORS,
+  admin_cors: ADMIN_CORS,
   database_url: DATABASE_URL,
   database_extra: { ssl: { rejectUnauthorized: false } },
+  // Uncomment the following lines to enable REDIS
+  // redis_url: REDIS_URL
 };
 
 /** @type {import('@medusajs/medusa').ConfigModule} */
