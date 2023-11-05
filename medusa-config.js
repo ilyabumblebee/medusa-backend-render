@@ -26,7 +26,7 @@ const ADMIN_CORS =
   process.env.ADMIN_CORS || "/https:\/\/*/";
 
 // CORS to avoid issues when consuming Medusa from a client
-const STORE_CORS = process.env.STORE_CORS || "/https:\/\/*/";
+const STORE_CORS = process.env.STORE_CORS || "/vercel\.app$/";
 
 const DATABASE_URL =
   process.env.DATABASE_URL || "postgres://localhost/medusa-starter-default";
@@ -77,7 +77,7 @@ const projectConfig = {
   jwtSecret: process.env.JWT_SECRET,
   cookieSecret: process.env.COOKIE_SECRET,
   admin_cors: "/https:\/\/*/",
-  store_cors: "/https:\/\/*/",
+  store_cors: "/vercel\.app$/",
   redis_url: REDIS_URL,
   database_url: DATABASE_URL,
   database_extra: { ssl: { rejectUnauthorized: false } },
