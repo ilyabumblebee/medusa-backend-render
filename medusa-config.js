@@ -46,8 +46,8 @@ const plugins = [
     },
   },
   {
-    resolve: "@medusajs/admin",
-    /** @type {import('@medusajs/admin').PluginOptions} */
+    resolve: "@ilyabumblebee/admin",
+    /** @type {import('@ilyabumblebee/admin').PluginOptions} */
     options: {
       autoRebuild: false,
       develop: {
