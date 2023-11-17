@@ -25,7 +25,7 @@
     "dev": "cross-env npm run build:server && medusa develop"
   },
   "dependencies": {
-    "@ilyabumblebee/admin": "1.1.6",
+    "@ilyabumblebee/admin": "1.1.7",
     "@medusajs/cache-redis": "^1.8.9",
     "@medusajs/event-bus-redis": "^1.8.10",
     "@medusajs/medusa": "1.17.4",
